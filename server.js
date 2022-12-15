@@ -1,6 +1,5 @@
-const express = require('express')
-const app = express()
-const port = 3003
+const app = require('./src/app.js')
+const port = 1313
 
 app.get('/', (req, res) => {
   res.send({ message: 'Boas vindas ao portal Pra Quem Doar!' })
