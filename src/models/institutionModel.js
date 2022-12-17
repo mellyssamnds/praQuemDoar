@@ -12,21 +12,17 @@ const institutionSchema = new mongoose.Schema(
       unique: true
     },
     address: {
-      type: [String],
+      type: String,
       required: true
     },
     description: {
       type: String,
       required: true,
-      minLength: 0,
-      maxLenght: 10000,
       default: 'no description'
     },
     socialCause: {
       type: String,
-      required: true,
-      minLength: 25,
-      maxLenght: 250
+      required: true
     },
     pix: {
       type: Number,
@@ -38,17 +34,17 @@ const institutionSchema = new mongoose.Schema(
       required: true,
       unique: true
     },
-    donorId: {
-      type: mongoose.Schema.Types.ObjectId,
+    email: {
+      type: String,
       required: true,
-      ref: 'Donor'
+      unique: true
     }
   },
   {
-    timestamp: true
+    timestamps: true
   }
 )
 
 const Model = mongoose.model('Institution', institutionSchema)
 
-mongoose.exports = Model
+module.exports = Model
