@@ -4,7 +4,7 @@ const donorSchema = new mongoose.Schema(
   {
     _id: {
       type: mongoose.Schema.Types.ObjectId,
-      default: mongoose.Schema.Types.ObjectId
+      default: mongoose.Types.ObjectId
     },
     donorName: {
       type: String,
@@ -21,10 +21,6 @@ const donorSchema = new mongoose.Schema(
       required: true,
       unique: true
     },
-    birthDate: {
-      type: Number,
-      required: true
-    },
     cpf: {
       type: Number,
       required: true,
@@ -32,17 +28,20 @@ const donorSchema = new mongoose.Schema(
       maxLenght: 11,
       unique: true
     },
+    birthDate: {
+      type: Date,
+      required: true
+    },
     donationAmount: {
-      type: Float,
-      required: true,
-      minLength: 50.0
+      type: Number,
+      required: true
     }
   },
   {
-    timestamp: true
+    timestamps: true
   }
 )
 
 const Model = mongoose.model('Donor', donorSchema)
 
-mongoose.exports = Model
+module.exports = Model
