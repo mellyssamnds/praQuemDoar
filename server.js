@@ -1,10 +1,6 @@
-const app = require('./src/app.js')
-const port = 1313
+const app = require('./src/app')
+const PORT = process.env.PORT
 
-app.get('/', (req, res) => {
-  res.send({ message: 'Boas vindas ao portal Pra Quem Doar!' })
-})
-
-app.listen(port, () => {
-  console.log(`API listening in port ${port}`)
+app.listen(PORT, () => {
+  console.log(`API running in Port ${PORT}`)
 })
